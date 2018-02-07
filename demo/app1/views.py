@@ -6,8 +6,8 @@ from .models import Company
 from .filters import CompanyFilter
 
 
-class CompanyViewSet(viewsets.ReadOnlyModelViewSet):
-    permission_classes = (permissions.AllowAny,)
+class CompanyViewSet(viewsets.ModelViewSet):
+    permission_classes = (permissions.DjangoModelPermissionsOrAnonReadOnly,)
     queryset = Company.objects.all()
     serializer_class = CompanySerializer
     filter_class = CompanyFilter
